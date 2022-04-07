@@ -174,10 +174,11 @@ public abstract class AbstractHelperDialect extends AbstractDialect implements C
     @Override
     public boolean beforePage(MappedStatement ms, Object parameterObject, RowBounds rowBounds) {
         Page page = getLocalPage();
-        if (page.isOrderByOnly() || page.getPageSize() > 0) {
-            return true;
-        }
-        return false;
+        // if (page.isOrderByOnly() || page.getPageSize() > 0) {
+        //             return true;
+        //         }
+        //         return false;
+        return page.isOrderByOnly() || page.getPageSize() > 0;
     }
 
     @Override

@@ -201,7 +201,8 @@ public abstract class PageMethod {
     protected static void setStaticProperties(Properties properties){
         //defaultCount，这是一个全局生效的参数，多数据源时也是统一的行为
         if(properties != null){
-            DEFAULT_COUNT = Boolean.valueOf(properties.getProperty("defaultCount", "true"));
+            // 源码使用的是 valueOf();
+            DEFAULT_COUNT = Boolean.parseBoolean(properties.getProperty("defaultCount", "true"));
         }
     }
 

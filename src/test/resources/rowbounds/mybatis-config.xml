@@ -28,10 +28,13 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+    <!-- org.apache.ibatis.builder.xml.XMLConfigBuilder#settingsElement -->
     <settings>
         <setting name="cacheEnabled" value="true"/>
         <setting name="lazyLoadingEnabled" value="false"/>
         <setting name="aggressiveLazyLoading" value="true"/>
+        <!-- 默认 SimpleExecutor -->
+        <setting name="defaultExecutorType" value="REUSE"/>
         <!--<setting name="logImpl" value="LOG4J"/>-->
     </settings>
 
@@ -39,7 +42,7 @@
         <package name="com.github.pagehelper.model"/>
     </typeAliases>
 
-    <!-- org.apache.ibatis.builder.xml.XMLConfigBuilder.pluginElement -->
+    <!-- org.apache.ibatis.builder.xml.XMLConfigBuilder#pluginElement -->
     <plugins>
         <plugin interceptor="com.github.pagehelper.PageInterceptor">
             <!-- 默认 dialect: com.github.pagehelper.PageInterceptor.default_dialect_class

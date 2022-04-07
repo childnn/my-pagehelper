@@ -60,9 +60,13 @@ import java.util.Properties;
         }
 )
 public class PageInterceptor implements Interceptor {
+    /**
+     * 有 config 配置中 interceptor dialect 属性值反射得到的 Dialect 实现
+     */
     private volatile Dialect dialect;
     private String countSuffix = "_COUNT";
     protected Cache<String, MappedStatement> msCountMap = null;
+    // todo: 源码中没有加 final, 是否有必要加?
     private String default_dialect_class = "com.github.pagehelper.PageHelper";
 
     /**
@@ -179,6 +183,7 @@ public class PageInterceptor implements Interceptor {
             dialectClass = default_dialect_class;
         }
         try {
+            // 利用 Dialect 实现的空参构造创建对象
             Class<?> aClass = Class.forName(dialectClass);
             dialect = (Dialect) aClass.newInstance();
         } catch (Exception e) {

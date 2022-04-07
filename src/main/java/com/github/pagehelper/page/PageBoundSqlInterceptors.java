@@ -18,9 +18,9 @@ public class PageBoundSqlInterceptors {
         if (StringUtil.isNotEmpty(boundSqlInterceptorStr)) {
             String[] boundSqlInterceptors = boundSqlInterceptorStr.split("[;|,]");
             List<BoundSqlInterceptor> list = new ArrayList<BoundSqlInterceptor>();
-            for (int i = 0; i < boundSqlInterceptors.length; i++) {
+            for (String boundSqlInterceptor : boundSqlInterceptors) {
                 try {
-                    list.add((BoundSqlInterceptor) Class.forName(boundSqlInterceptors[i]).newInstance());
+                    list.add((BoundSqlInterceptor) Class.forName(boundSqlInterceptor).newInstance());
                 } catch (Exception e) {
                     throw new RuntimeException(e);
                 }

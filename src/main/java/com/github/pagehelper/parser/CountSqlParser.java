@@ -146,8 +146,8 @@ public class CountSqlParser {
     public static void addAggregateFunctions(String functions){
         if(StringUtil.isNotEmpty(functions)){
             String[] funs = functions.split(",");
-            for (int i = 0; i < funs.length; i++) {
-                AGGREGATE_FUNCTIONS.add(funs[i].toUpperCase());
+            for (String fun : funs) {
+                AGGREGATE_FUNCTIONS.add(fun.toUpperCase());
             }
         }
     }

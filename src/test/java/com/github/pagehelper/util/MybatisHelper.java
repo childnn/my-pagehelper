@@ -59,7 +59,7 @@ public class MybatisHelper {
                     Connection conn = session.getConnection();
                     reader = Resources.getResourceAsReader(TestUtil.getXmlPath() + "/" + TestUtil.getXmlPath() + ".sql");
                     ScriptRunner runner = new ScriptRunner(conn);
-                    runner.setLogWriter(null);
+                    // runner.setLogWriter(null);
                     runner.runScript(reader);
                     reader.close();
                 } finally {

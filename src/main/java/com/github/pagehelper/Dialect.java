@@ -36,6 +36,7 @@ import java.util.Properties;
  * 数据库方言，针对不同数据库进行实现
  *
  * @author liuzh
+ * Dialect 实现决定了拦截器
  */
 public interface Dialect {
     /**
